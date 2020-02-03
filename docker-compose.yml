@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mod-test:
+    image: "acornwe3/folio-test-module:v1"
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres:12
+    restart: always
+    ports:
+        - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=tester1
+      - POSTGRES_DB=okapi_modules
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8080
+  okapi:
+    build: .
+    ports:
+      - "9130:9130"
+    environment:
+      - db.host=db
+      - db.port=5432
+      - db.username=postgres
+      - db.password=tester1
+      - db.database=okapi_modules
