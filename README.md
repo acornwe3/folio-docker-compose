@@ -13,7 +13,7 @@ Functioning Docker Desktop installation (or equivalent)
 To run Okapi with the okapi-test-module-fat.jar:
 
 git clone https://github.com/acornwe3/folio-docker-compose.git  
-cd folio-docker-compose. 
+cd folio-docker-compose  
 docker-compose up
 
 ## Testing 
